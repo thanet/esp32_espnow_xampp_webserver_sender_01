@@ -196,18 +196,18 @@ void initializeEspNow() {
     return;
   }
 
-  // Register send callback
-  esp_now_register_send_cb(OnDataSent);
+    // Register send callback
+    esp_now_register_send_cb(OnDataSent);
 
-  // Register peer
-  memcpy(peerInfo.peer_addr, broadcastAddress, 6);
-  peerInfo.encrypt = false;
+    // Register peer
+    memcpy(peerInfo.peer_addr, broadcastAddress, 6);
+    peerInfo.encrypt = false;
 
-  // Add peer        
-  if (esp_now_add_peer(&peerInfo) != ESP_OK) {
-    Serial.println("Failed to add peer");
-    return;
-  }
+    // Add peer        
+    if (esp_now_add_peer(&peerInfo) != ESP_OK) {
+      Serial.println("Failed to add peer");
+      return;
+    }
 }
 
 // Connect to the first available SSID from the list
