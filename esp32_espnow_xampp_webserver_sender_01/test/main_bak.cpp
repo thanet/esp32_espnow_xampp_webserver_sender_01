@@ -11,7 +11,7 @@
 #include "SHT3xSensor.h"
 
 // Set your Board ID (ESP32 Sender #1 = BOARD_ID 1, ESP32 Sender #2 = BOARD_ID 2, etc)
-#define BOARD_ID 3
+#define BOARD_ID 1
 
 // MAC Address of the receiver 
 uint8_t broadcastAddress[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};  // For broadcast, non-specific receiver
@@ -152,7 +152,7 @@ void Sht30_Reading() {
 
 // Function to read temperature randomly (for simulation)
 float readDHTTemperature() {
-  float t = random(30, 35);  // Generate a random temperature value
+  float t = random(25, 35);  // Generate a random temperature value
   if (isnan(t)) {
     Serial.println("Failed to read simulated temperature!");
     return 0;
@@ -164,7 +164,7 @@ float readDHTTemperature() {
 
 // Function to read humidity randomly (for simulation)
 float readDHTHumidity() {
-  float h = random(50, 60);  // Generate a random humidity value
+  float h = random(75, 99);  // Generate a random humidity value
   if (isnan(h)) {
     Serial.println("Failed to read simulated humidity!");
     return 0;
